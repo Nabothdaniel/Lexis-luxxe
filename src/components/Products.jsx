@@ -1,45 +1,55 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FiChevronLeft, FiChevronRight} from "react-icons/fi";
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+
+import img1 from '../assets/shirt2.jpeg'
+import img2 from '../assets/shirt3.jpeg'
+import img4 from '../assets/shirt4.jpeg'
+import img5 from '../assets/shirt5.jpeg'
+import img6 from '../assets/shirt6.jpeg'
+import img7 from '../assets/shirt7.jpeg'
+import img8 from '../assets/shirt8.jpeg'
+import img9 from '../assets/shirt9.jpeg'
+import img10 from '../assets/shirt10.jpeg'
+import img11 from '../assets/shirt11.jpeg'
+import img12 from '../assets/shirt12.jpeg'
+import img13 from '../assets/shirt13.jpeg'
+import img14 from '../assets/shirt14.jpeg'
+import img15 from '../assets/shirt15.jpeg'
+import img16 from '../assets/shirt16.jpeg'
+import img17 from '../assets/shirt17.jpeg'
+import img18 from '../assets/shirt18.jpeg'
+import img19 from '../assets/shirt19.jpeg'
+import img20 from '../assets/shirt20.jpeg'
+import img21 from '../assets/shirt21.jpeg'
 
 export default function Products() {
-    const [email, setEmail] = useState('');
     const [currentIndex, setCurrentIndex] = useState(0);
     const [direction, setDirection] = useState('right');
-
-
-
-   
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, margin: '-100px' });
 
     const products = [
-        {
-            id: 1,
-            name: "Cozy",
-            description: "Stylish brown corduroy jacket",
-            image: "/api/placeholder/150/200",
-            color: "bg-green-200"
-        },
-        {
-            id: 2,
-            name: "Elegant",
-            description: "Sophisticated casual jacket",
-            image: "/api/placeholder/150/200",
-            color: "bg-purple-200"
-        },
-        {
-            id: 3,
-            name: "Casual",
-            description: "Comfortable fit for any occasion",
-            image: "/api/placeholder/150/200",
-            color: "bg-yellow-200"
-        },
-        {
-            id: 4,
-            name: "Vibrant",
-            description: "Bold patterns and colors",
-            image: "/api/placeholder/150/200",
-            color: "bg-pink-300"
-        }
+        { id: 1, image: img1, name: 'Casual Tee', description: 'A stylish and comfy casual tee.' },
+        { id: 2, image: img2, name: 'Summer Vibes', description: 'Perfect shirt for the summer heat.' },
+        { id: 3, image: img4, name: 'Urban Wear', description: 'Trendy shirt for the city life.' },
+        { id: 4, image: img5, name: 'Bold Look', description: 'Make a statement anywhere you go.' },
+        { id: 5, image: img6, name: 'Soft Fabric', description: 'Comfort with a smooth finish.' },
+        { id: 6, image: img7, name: 'Retro Style', description: 'Classic look with modern comfort.' },
+        { id: 7, image: img8, name: 'Minimalist', description: 'Clean, simple, elegant.' },
+        { id: 8, image: img9, name: 'Work Ready', description: 'Smart casual for everyday hustle.' },
+        { id: 9, image: img10, name: 'Weekend Fit', description: 'Chill style for weekend outings.' },
+        { id: 10, image: img11, name: 'Night Out', description: 'Look sharp after hours.' },
+        { id: 11, image: img12, name: 'Monochrome', description: 'Subtle tones for quiet elegance.' },
+        { id: 12, image: img13, name: 'Streetwear', description: 'Bold graphics meet street style.' },
+        { id: 13, image: img14, name: 'Chic Classic', description: 'Dress to impress, effortlessly.' },
+        { id: 14, image: img15, name: 'Denim Ready', description: 'Pairs great with your favorite jeans.' },
+        { id: 15, image: img16, name: 'Outdoor Vibe', description: 'Ready for adventure.' },
+        { id: 16, image: img17, name: 'Formal Touch', description: 'Refined for the modern man.' },
+        { id: 17, image: img18, name: 'Graphic Tee', description: 'Show off your personality.' },
+        { id: 18, image: img19, name: 'Everyday Favorite', description: 'The shirt you’ll always reach for.' },
+        { id: 19, image: img20, name: 'Eco Fit', description: 'Sustainably made, incredibly soft.' },
+        { id: 20, image: img21, name: 'Luxury Feel', description: 'Premium cotton blend.' },
     ];
 
     const nextSlide = () => {
@@ -51,6 +61,13 @@ export default function Products() {
         setDirection('left');
         setCurrentIndex((prev) => (prev === 0 ? products.length - 1 : prev - 1));
     };
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            nextSlide();
+        }, 5000);
+        return () => clearInterval(timer);
+    }, []);
 
     const cardVariants = {
         enter: (direction) => ({
@@ -76,78 +93,90 @@ export default function Products() {
     };
 
     return (
-        <div className="bg-black p-6 py-12 font-sans max-w-6xl mx-auto">
-            {/* Header Section */}
-            <div className="mb-6">
-                <h2 className="text-xl font-bold mb-1 text-white">For your essential style.</h2>
-                <p className="text-sm text-gray-400 mb-4">
-                    Choose from our carefully curated collection to enhance
-                    your own expressiveness and add, no matter what the situation
-                    or the aesthetic.
-                </p>
+        <div className="bg-black p-6 py-16 font-sans max-w-6xl mx-auto" ref={ref}>
+            {/* Animated Section Header */}
+            <AnimatePresence>
+                {isInView && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 50 }}
+                        transition={{ duration: 0.8 }}
+                        className="text-center mb-12"
+                    >
+                        <h1 className="text-white text-4xl md:text-6xl  mb-2 tracking-wide ">
+                            <span className="bg-gradient-to-r from-lime-400 via-lime-300 to-white bg-clip-text text-transparent">
+                                Products
+                            </span>
+                        </h1>
+                        <p className="text-white text-lg font-medium animate-pulse">
+                            ✨ Discover Your Style ✨
+                        </p>
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
-                {/* Navigation Arrows */}
-                <div className="flex justify-end gap-2 mb-4">
+            {/* Slider & Buttons */}
+            <div className="mb-6 flex justify-between items-start gap-4">
+                <div className="relative h-96 md:h-[400px] flex-1 overflow-hidden">
+                    <AnimatePresence custom={direction} initial={false}>
+                        <motion.div
+                            key={currentIndex}
+                            custom={direction}
+                            variants={cardVariants}
+                            initial="enter"
+                            animate="center"
+                            exit="exit"
+                            className="absolute inset-0"
+                        >
+                            <div className="h-full w-full rounded-lg overflow-hidden border border-gray-700">
+                                <img
+                                    src={products[currentIndex].image}
+                                    alt={`Product ${currentIndex}`}
+                                    className="h-full w-full object-contain"
+                                />
+                            </div>
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
+
+                {/* Buttons & thumbnails */}
+                <div className="flex flex-col items-center gap-4">
                     <button
                         onClick={prevSlide}
-                        className="bg-yellow-200 p-2 rounded-full hover:bg-yellow-300 transition"
+                        className="bg-white text-black p-2 rounded-full hover:bg-gray-100 transition"
                     >
                         <FiChevronLeft size={20} />
                     </button>
+
+                    <div className="space-y-2">
+                        {[1, 2].map((offset) => {
+                            const index = (currentIndex + offset) % products.length;
+                            return (
+                                <img
+                                    key={index}
+                                    src={products[index].image}
+                                    alt={`Thumbnail ${index}`}
+                                    className="w-16 h-16 rounded border border-gray-600 object-cover"
+                                />
+                            );
+                        })}
+                    </div>
+
                     <button
                         onClick={nextSlide}
-                        className="bg-yellow-200 p-2 rounded-full hover:bg-yellow-300 transition"
+                        className="bg-white text-black p-2 rounded-full hover:bg-gray-100 transition"
                     >
                         <FiChevronRight size={20} />
                     </button>
                 </div>
             </div>
 
-            {/* Product Cards Swiper */}
-            <div className="relative h-96 md:h-[400px] w-full overflow-hidden mb-8">
-                <AnimatePresence custom={direction} initial={false}>
-                    <motion.div
-                        key={currentIndex}
-                        custom={direction}
-                        variants={cardVariants}
-                        initial="enter"
-                        animate="center"
-                        exit="exit"
-                        className="absolute inset-0"
-                    >
-                        <div className={`${products[currentIndex].color} h-full rounded-lg overflow-hidden border border-gray-700 flex flex-col`}>
-                            <div className="flex-1 flex items-center justify-center p-4">
-                                <img
-                                    src={products[currentIndex].image}
-                                    alt={products[currentIndex].name}
-                                    className="h-full w-full object-contain"
-                                />
-                            </div>
-                            <div className="bg-black text-white p-4">
-                                <h3 className="font-bold text-lg">{products[currentIndex].name}</h3>
-                                <p className="text-sm text-gray-300">{products[currentIndex].description}</p>
-                            </div>
-                        </div>
-                    </motion.div>
-                </AnimatePresence>
+            {/* Product Title & Description */}
+            <div className="text-center text-white space-y-2">
+                <h2 className="text-2xl font-semibold">{products[currentIndex].name}</h2>
+                <p className="text-gray-400">{products[currentIndex].description}</p>
             </div>
-
-            {/* Product Dots Indicator */}
-            <div className="flex justify-center gap-2 mb-8">
-                {products.map((_, index) => (
-                    <button
-                        key={index}
-                        onClick={() => {
-                            setDirection(index > currentIndex ? 'right' : 'left');
-                            setCurrentIndex(index);
-                        }}
-                        className={`w-3 h-3 rounded-full transition-all ${index === currentIndex ? 'bg-yellow-200 w-6' : 'bg-gray-600'
-                            }`}
-                    />
-                ))}
-            </div>
-
-         
         </div>
     );
 }
