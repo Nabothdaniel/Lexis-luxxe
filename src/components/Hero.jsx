@@ -23,7 +23,7 @@ const Hero = () => {
 
           <a
             href="#"
-            className="bg-transparent border border-white px-6 py-3 rounded font-semibold hover:bg-white hover:text-black transition"
+            className="bg-transparent border border-white px-6 py-3 rounded font-semibold hover:bg-white active:bg-white hover:text-black transition"
           >
             Shop Now
           </a>

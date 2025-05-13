@@ -70,7 +70,7 @@ const Header = () => {
                             {menuItems.map((item) => (
                                 <li 
                                     key={item.name} 
-                                    className="flex items-center text-sm hover:bg-gray-300 py-3 px-3 rounded-sm hover:text-black cursor-pointer transition-colors"
+                                    className="flex items-center text-sm hover:bg-gray-300 active:bg-gray-300 py-3 px-3 rounded-sm hover:text-black cursor-pointer transition-colors"
                                     onClick={() => setMenuOpen(false)}
                                 >
                                     {item.icon}
@@ -78,7 +78,7 @@ const Header = () => {
                                 </li>
                             ))}
                             <li>
-                                <button className="flex items-center justify-center bg-lime-500 text-black w-full py-3 rounded hover:bg-lime-400 transition">
+                                <button className="flex items-center justify-center bg-lime-500 text-black w-full py-3 rounded hover:bg-lime-400 active:bg-lime-400 transition">
                                     <HiShoppingCart className="mr-2" />
                                     Order Now
                                 </button>
