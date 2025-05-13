@@ -83,51 +83,7 @@ export default function Products() {
         ))}
       </div>
       
-      {/* New Drops Section */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-800 tracking-wide leading-tight">
-          New exciting drops<br />
-          coming following month.
-        </h2>
-      </div>
-      
-      {/* Newsletter and Updates Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Newsletter Subscription */}
-        <div className=" p-4 rounded-lg">
-          <h3 className="font-bold mb-2">Subscribe to the newsletter</h3>
-          <p className="text-sm mb-3">
-            Stay informed about the latest fashion trends and be notified
-            when new collections are released.
-          </p>
-          <form onSubmit={handleSubmit} className="flex">
-            <input
-              type="email"
-              value={email}
-              onChange={handleEmailChange}
-              placeholder="youremail@example.com"
-              className="flex-grow p-2 text-sm border border-gray-300 rounded-l"
-              required
-            />
-            <button 
-              type="submit" 
-              className="bg-gray-400 text-white p-2 rounded-r flex items-center justify-center"
-            >
-              <FiArrowRight size={20} />
-            </button>
-          </form>
-        </div>
-        
-        {/* New Arrivals Info */}
-        <div className=" p-4 rounded-lg">
-          <h3 className="font-bold mb-2">New arrivals in every two months</h3>
-          <p className="text-sm">
-            There's always something new to explore in our collections.
-            Create your account to be notified of products if you want
-            to be the first to know.
-          </p>
-        </div>
-      </div>
+    
     </div>
   );
 }
