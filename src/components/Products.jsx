@@ -94,7 +94,7 @@ export default function Products() {
       {/* Newsletter and Updates Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Newsletter Subscription */}
-        <div className="bg-yellow-100 p-4 rounded-lg">
+        <div className=" p-4 rounded-lg">
           <h3 className="font-bold mb-2">Subscribe to the newsletter</h3>
           <p className="text-sm mb-3">
             Stay informed about the latest fashion trends and be notified
@@ -111,7 +111,7 @@ export default function Products() {
             />
             <button 
               type="submit" 
-              className="bg-orange-400 text-white p-2 rounded-r flex items-center justify-center"
+              className="bg-gray-400 text-white p-2 rounded-r flex items-center justify-center"
             >
               <FiArrowRight size={20} />
             </button>
@@ -119,7 +119,7 @@ export default function Products() {
         </div>
         
         {/* New Arrivals Info */}
-        <div className="bg-yellow-100 p-4 rounded-lg">
+        <div className=" p-4 rounded-lg">
           <h3 className="font-bold mb-2">New arrivals in every two months</h3>
           <p className="text-sm">
             There's always something new to explore in our collections.

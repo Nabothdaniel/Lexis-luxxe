@@ -47,7 +47,7 @@ const SwipperComponent = () => {
     }
 
     return () => clearInterval(interval);
-  }, [currentIndex, isAutoPlaying]);
+  },[currentIndex, isAutoPlaying]);
 
   const handleNext = () => {
     setDirection("right");
