@@ -12,6 +12,10 @@ button{
   cursor: pointer;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 .dm-sans {
   font-family: "DM Sans:", sans-serif;
 }

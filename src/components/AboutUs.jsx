@@ -1,10 +1,10 @@
-import aboutImage1 from '../assets/lexis-ceo.jpeg'; // Add your image paths
-
+import { motion } from 'framer-motion';
+import aboutImage1 from '../assets/lexis-ceo.jpeg';
 
 const AboutUs = () => {
   return (
     <section id="about" className="relative bg-black overflow-hidden px-6 py-20">
-      {/* Slanted Image Gallery */}
+      {/* Slanted Image Background */}
       <div className="absolute inset-0 flex overflow-hidden opacity-20">
         <div className="relative w-1/3 h-full transform -skew-x-12 origin-center overflow-hidden">
           <img
@@ -13,12 +13,16 @@ const AboutUs = () => {
             className="w-full h-full object-cover transform skew-x-8 md:skew-x-12"
           />
         </div>
-
-
       </div>
 
-      {/* Content */}
-      <div className="relative max-w-4xl mx-auto text-center z-10">
+      {/* Animated Content */}
+      <motion.div 
+        className="relative max-w-4xl mx-auto text-center z-10"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        viewport={{ once: true }}
+      >
         <h2 className="text-4xl md:text-5xl font-bold mb-6">
           <span className="bg-gradient-to-r from-lime-400 via-lime-300 to-white bg-clip-text text-transparent">
             About Lexis Luxxe
@@ -36,7 +40,7 @@ const AboutUs = () => {
             Whether you're dressing up or keeping it casual, Lexis has something that fits <span className="italic text-white">you</span>.
           </p>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

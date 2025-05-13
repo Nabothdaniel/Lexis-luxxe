@@ -93,7 +93,7 @@ export default function Products() {
     };
 
     return (
-        <div className="bg-black p-6 py-16 font-sans max-w-6xl mx-auto" ref={ref}>
+        <div id='products' className="bg-black p-6 py-16 font-sans max-w-6xl mx-auto" ref={ref}>
             {/* Animated Section Header */}
             <AnimatePresence>
                 {isInView && (
