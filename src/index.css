@@ -15,3 +15,10 @@ button{
 .dm-sans {
   font-family: "DM Sans:", sans-serif;
 }
+
+@layer utilities {
+  .bg-clip-text {
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}

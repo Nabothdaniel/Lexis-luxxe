@@ -1,18 +1,26 @@
-// components/HeroSection.jsx
+import heroBanner from '../assets/utils/grid-img.png'
+import TypeWriter from './animation/TypeWriter';
+import SwiperComponent from './SwipperComponents';
+
+//image imports 
+
+import Img1 from '../assets/hero/lexis-hero-img.png'
+//import Img2 from '../assets/hero/lexis-hero-img2.png'
+
 const Hero = () => {
   return (
-    <section className=" text-white flex items-center justify-center py-16 md:py-20 px-6">
-      <div className="absolute inset-0 bg-black bg-opacity-60" />
+    <section className=" text-white flex items-center   h-auto justify-center py-16 md:py-20 px-3  w-full" style={{ backgroundImage: `url(${heroBanner})` }}>
 
-      <div className="relative z-10 max-w-3xl text-center">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">
-          Wear Confidence. <br className="hidden md:block" /> Define Your Style.
-        </h1>
-        <p className="text-lg md:text-xl text-gray-200 mb-8">
+      <div className=" max-w-3xl text-center relative">
+        <div className="">
+          <img src={Img1} alt="hero icon" className='absolute top-5 right-2 z[-10]' />
+        </div>
+        <TypeWriter />
+        <p className="text-base md:text-lg lg:text-2xl text-gray-200 mb-6 md:mb-8 px-4">
           Discover timeless fashion fits — only at Lexis Luxxe.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          
+
           <a
             href="#"
             className="bg-transparent border border-white px-6 py-3 rounded font-semibold hover:bg-white hover:text-black transition"
@@ -20,6 +28,8 @@ const Hero = () => {
             Shop Now
           </a>
         </div>
+        <SwiperComponent />
+
       </div>
     </section>
   );
