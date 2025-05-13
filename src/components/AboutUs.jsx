@@ -1,13 +1,41 @@
+import aboutImage1 from '../assets/lexis-ceo.jpeg'; // Add your image paths
+
+
 const AboutUs = () => {
   return (
-    <section id="about" className="bg-black  px-6 h-auto py-10">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-4">About Lexis</h2>
-        <p className="text-gray-300 text-lg leading-relaxed">
-          At Lexis, we believe fashion is more than just clothing — it's a statement of identity and confidence. 
-          Our collections for Men, Women, and Kids are crafted with premium materials and timeless designs to suit every personality. 
-          Whether you're dressing up or keeping it casual, Lexis has something that fits you.
-        </p>
+    <section id="about" className="relative bg-black overflow-hidden px-6 py-20">
+      {/* Slanted Image Gallery */}
+      <div className="absolute inset-0 flex overflow-hidden opacity-20">
+        <div className="relative w-1/3 h-full transform -skew-x-12 origin-center overflow-hidden">
+          <img
+            src={aboutImage1}
+            alt="Men's collection"
+            className="w-full h-full object-cover transform skew-x-8 md:skew-x-12"
+          />
+        </div>
+
+
+      </div>
+
+      {/* Content */}
+      <div className="relative max-w-4xl mx-auto text-center z-10">
+        <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <span className="bg-gradient-to-r from-lime-400 via-lime-300 to-white bg-clip-text text-transparent">
+            About Lexis Luxxe
+          </span>
+        </h2>
+
+        <div className="bg-black/80 backdrop-blur-sm p-8 rounded-xl border border-white">
+          <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-6">
+            At Lexis, we believe fashion is more than just clothing — it's a statement of identity and confidence.
+          </p>
+          <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-6">
+            Our collections are crafted with premium materials and timeless designs to suit every personality.
+          </p>
+          <p className="text-gray-300 text-lg md:text-xl leading-relaxed">
+            Whether you're dressing up or keeping it casual, Lexis has something that fits <span className="italic text-white">you</span>.
+          </p>
+        </div>
       </div>
     </section>
   );
